@@ -1,0 +1,47 @@
+//funções e funcionalidades do node.js
+
+npm install express --save
+
+//função que permite o node.js ser restartado automaticamente
+
+npm install -g nodemon
+
+//cria pacote
+
+npm init
+
+npm install
+
+//instala a conexao necessária do mysql npm no diretório onde se encontra
+npm install mysql --save
+
+//cria usuários no mysql DB
+
+create user 'gustavo692'@'localhost' identified with mysql_native_password by '123456';
+
+//atribui previlégios aos usuários do mysql
+
+grant all privileges on *.* to 'gustavo692'@'localhost';
+
+//instala o sequelize onde ele suporta alterações de banco de dados apartir do javascript
+
+npm install --save sequelize
+
+npm install --save mysql2
+
+
+//instala a extensão do handlebars junto ao express
+
+npm install --save express-handlebars
+
+//instala o body-parser usado para receber os dados do formulário
+
+npm install body-parser
+
+//server para ajustar a hora nos padrões
+
+npm install --save moment
+
+
+//dar permições ao handlebars
+npm i  --save  -D handlebars@4.5.0 
