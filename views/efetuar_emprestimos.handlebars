@@ -1,0 +1,66 @@
+<title>Efetuar pagamentos</title>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<a class="navbar-brand" href="inicio"><i class="fa fa-home"></i></a>
+
+<h1>Efetuar empréstimos</h1>
+
+<div class="form-button">
+
+</nav>
+</div>
+
+<div class="jumbotron">
+
+<center>
+
+{{>_msg}}
+
+</center>
+
+<input type="text" class="form-control" placeholder="Total a pagar R$" name="Total_pagar">
+<input type="text" class="form-control" placeholder="Valor inserito R$" name="Valor_inserido">
+
+<div class="form-group">
+
+<input type="text" class="form-control" placeholder="Forma de pagamento" list="Método_form_pag" id="Efetuar_form_pag">
+
+<datalist id="Método_form_pag">
+
+<option value="Débito"></option>
+<option value="Crédito"></option>
+<option value="Dinheiro"></option>
+
+</div>
+</datalist>
+
+<input type="date" class="form-control">
+
+<button type="submit" class="btn btn-outline-success btn btn-block"><i class="fa fa-money" aria-hidden="true"></i></button>
+
+<style>
+
+.jumbotron{
+
+width: 600px;
+margin-left: auto;
+margin-right: auto;
+margin-top: 10%;
+background-color: transparent;
+text-align: center;
+}
+
+h1{
+
+margin-left: 35%;
+color: whitesmoke;
+
+}
+
+h2{
+
+margin-left: 10%;
+color: whitesmoke;
+}
+
+</style>

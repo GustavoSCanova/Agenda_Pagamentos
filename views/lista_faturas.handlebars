@@ -1,0 +1,93 @@
+<title>Lista de Pagamentos</title>
+
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="inicio"><i class="fa fa-arrow-left"></i></a>
+
+<h2>Faturas</h2>
+
+<div class="form-button">
+
+<a href="lista_faturas" class="btn btn-outline-primary" role="button"><i class="fa fa-repeat" aria-hidden="true"></i></a>
+<a href="editar_faturas" class="btn btn-outline-primary" role="button"><i class="fa fa-edit"></i></a>
+
+</nav>
+</div>
+
+<div class="jumbotron">
+
+<center>
+
+{{>_msg}}
+
+</center>
+
+<br>
+
+{{#each faturas}}
+
+    <b>ID:</b> {{id}}<br>
+    <b>Pendência:</b> {{Nome_pend}}<br>
+    <b>Valor total da compra R$:</b> {{Valor_compra}}<br>
+    <b>Valor total pago R$:</b> {{Valor_pago}}<br>
+    <b>Situação: </b> {{Situacao}} <br>
+    <b>Vencimento:</b> {{#formatDate Vencimento}} {{/formatDate}} <br>
+    <b>Fatura adicionada ás:</b> {{Hora}} <br>
+    <b>Fatura criada:</b> {{#formatDate createdAt}}{{/formatDate}}<br>
+    <br>
+    <a href="/deletar/fatura/{{id}}" class="btn btn-outline-danger btn-block" role="button"><i class="fa fa-trash"></i></a>
+    
+<hr>
+
+{{/each}}
+
+</div>
+
+<style>
+
+.navbar-light{
+
+opacity: 80%;
+
+} 
+
+.form-button{
+
+margin-left: 35%;
+
+}
+
+.btn-outline-danger{
+
+border-radius: 10px;
+
+}
+
+.btn-outline-primary{
+margin-right: 10px;
+border-radius: 10px;
+
+}
+
+html {
+  scroll-behavior: smooth;
+ }
+
+ .jumbotron{
+     background-color: whitesmoke;
+     width: 650px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 70px;
+       border-radius: 5%;
+       opacity: 90%;
+     }
+h2{
+
+padding-left: 42%;
+text-align: center;
+color: black; 
+
+}
+
+</style>
+

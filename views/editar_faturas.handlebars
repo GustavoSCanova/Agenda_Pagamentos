@@ -1,0 +1,231 @@
+<title>Editar pagamento</title>
+
+<div id="up"></div>
+
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+<a class="navbar-brand" href="lista_faturas"><i class="fa fa-arrow-left"></i></a>
+
+<h2>Edição</h2>
+
+<div class="form-button">
+
+<a href="inicio" class="btn btn-outline-primary" role="button"><i class="fa fa-plus-circle"></i></a>
+
+<a href="editar_faturas" class="btn btn-outline-primary" role="button"><i class="fa fa-repeat"></i></a>
+
+<a href="#down" class="btn btn-outline-primary" role="button"><i class="fa fa-arrow-down"></i></a>
+
+</nav>
+
+</div>
+
+<form action="editar_faturas" method="post" value="{{id}}">
+
+<center>
+
+{{>_msg}}
+
+</center>
+
+{{#each id}}
+
+ <table class="table table-light" align= center>
+<thead class="thead-light" align= center>
+    <tr>
+      <th>Id</th>
+      <th>Pendência</th>
+      <th>Valor total da compra R$</th>
+      <th>Valor pago total R$</th>
+      <th>Situação</th>
+      <th>Vencimento</th>
+      <th>Pagamento adicionado ás</th>
+      <th>Pagamento criado</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="btn-group" data-toggle="buttons">
+  <label class="btn-outline-success btn btn-block">
+    <input class="control-check" name="id" type="radio" value="{{id}}"> {{id}}</input>
+
+  </label>
+</div>
+</td>
+        <td align="center">{{Nome_pend}}</td>
+        <td align="center">{{Valor_compra}}</td>
+        <td align="center">{{Valor_pago}}</td>
+        <td align="center">{{Situacao}}</td>
+        <td align="center">{{Vencimento}}</td>
+        <td align="center">{{Hora}}</td>
+        <td align="center">{{#formatDate createdAt}}{{/formatDate}}</td>
+        
+      </tr>
+
+      <tr>
+      <td scope="row"></td>
+
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+        <td>
+        
+        <a href="/deletar/fatura/{{id}}" class="btn btn-outline-danger btn btn-block" role="button"><i class="fa fa-trash"></i></a>
+
+        </td>
+
+      </tr>
+    </tbody>
+</table>
+
+
+
+{{/each}}
+
+<br>
+
+<div class="jumbotron">
+  
+{{#each erros}}
+
+<div class="alert alert-danger">{{texto}}</div>
+
+{{else}}
+
+{{/each}}
+
+<a href="#up" class="btn btn-primary" role="button"><i class="fa fa-arrow-up"></i></a>
+
+<div id="down"></div>
+
+<input class="form-control" type="text" placeholder="Nome da Pendência" name="Nome_pend" id="Nome_pend">
+
+<input class="form-control" type="text" placeholder="Valor total da compra R$" name="Valor_compra" id="Valor_compra" list="List">
+ 
+<input class="form-control" type="text" placeholder="Valor total pago R$" name="Valor_pago" id="Valor_pago" list="List">
+ 
+<input class="form-control" type="text" placeholder="Situação de pagamento..." name="Situacao" id="Situacao" list="List">
+
+<datalist id="Situação">
+
+  <option value="Pago"></option>
+  <option value="Pendente"></option>	
+
+</datalist>
+
+<input class="form-control" type="date" name="Vencimento" id="Vencimento">
+
+<input class="form-control" type="time" name="Hora" id="Hora">
+
+<button type="submit" class="btn btn-primary btn btn-block"><i class="fa fa-edit"></i></button>
+<button class="btn btn-outline-danger btn-block" type="reset"><i class="fa fa-eraser"></i></button>
+
+</form>
+
+</div>
+
+<style>
+
+.navbar-light{
+
+opacity: 80%;
+
+} 
+
+.btn-primary{
+
+margin-top: 10px;
+border-radius: 10px;
+}
+
+html {
+
+  scroll-behavior: smooth;
+ 
+ }
+
+.table-light{
+     opacity: 95%;
+     width: 1450px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 70px;
+
+}
+
+ .jumbotron{
+     background-color: whitesmoke;
+     width: 650px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 5px;
+       border-radius: 5%;
+       opacity: 90%;
+     }
+
+.btn-outline-danger{
+
+margin-top: 10px;
+border-radius: 10px;
+
+}
+
+.btn-outline-primary{
+
+border-radius: 10px;
+margin-left: 40%;
+border-radius: 10px;
+margin-bottom: 10%;
+}
+
+
+.form-button{
+
+margin-left: 40%;
+
+}
+
+
+h2{
+
+padding-left: 45%;
+text-align: center;
+color: black;
+
+}
+
+
+.btn-group{
+
+
+margin-top: 15px;
+
+}
+
+.btn-outline-success{
+
+width: 100px;
+margin-bottom: 20%;
+border-radius: 20px;
+cursor: pointer;
+
+}
+
+.control-check{
+
+cursor: pointer;
+
+}
+
+</style>

@@ -1,0 +1,121 @@
+<title>InÍcio</title>
+
+<body>
+
+<form action='/add-fatura' method="POST">
+
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+
+<h2>Início</h2>
+
+<div class="form-button">
+
+<button class="btn btn-outline-success" id="btnSubmit" type="submit"><i class="fa fa-plus-circle"></i></button>
+<a href="lista_faturas" class="btn btn-outline-primary" role="button"><i class="fa fa-th-list"></i></a>
+<button class="btn btn-outline-danger" type="reset"><i class="fa fa-eraser"></i></button>
+
+</nav>
+</div>
+<div class="jumbotron">
+
+{{#each erros}}
+
+<div class="alert alert-danger">{{texto}}</div>
+
+{{else}}
+
+{{/each}}
+
+<div class="form-group">
+
+<input class="form-control" type="text" placeholder="Nome da Pendência" name="Nome_pend" id="Nome_pend">
+
+<input class="form-control" type="text" placeholder="Valor total da compra R$" name="Valor_compra" id="Valor_compra" list="List">
+ 
+<input class="form-control" type="text" placeholder="Valor total pago R$" name="Valor_pago" id="Valor_pago" list="List">
+ 
+<input class="form-control" type="text" placeholder="Situação de pagamento..." name="Situacao" id="Situacao" list="List">
+
+<datalist id="Situação">
+
+  <option value="Pago"></option>
+  <option value="Pendente"></option>	
+
+</datalist>
+
+<input class="form-control" type="date" name="Vencimento" id="Vencimento">
+
+<input class="form-control" type="time" name="Hora" id="Hora">
+
+</form>
+
+</div>
+
+</body>
+
+<style>
+
+.navbar-light{
+
+opacity: 80%;
+
+} 
+
+body{
+
+zoom: 75%;
+
+}
+
+.form-button{
+
+margin-left: 35%;
+
+}
+
+.btn-outline-danger{
+
+border-radius: 10px;
+
+}
+
+.btn-outline-primary{
+margin-right: 10px;
+border-radius: 10px;
+
+}
+
+.btn-outline-success{
+
+margin-right: 10px;
+border-radius: 10px;
+margin-bottom: 15px;
+
+}
+
+html {
+
+  scroll-behavior: smooth;
+ }
+
+
+  .jumbotron{
+    opacity: 95%;
+    color: whitesmoke;
+    width: 50%;
+    text-align: center;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 2%;
+     border-radius: 5%;
+     }
+
+h2{
+
+padding-left: 45%;
+text-align: center;
+color: black
+
+}
+
+</style>
