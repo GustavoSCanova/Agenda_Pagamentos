@@ -19,7 +19,16 @@
 
 </div>
 
+
 <form action="editar_faturas" method="post" value="{{id}}">
+  
+{{#each erros}}
+
+<div class="alert alert-danger">{{texto}}</div>
+
+{{else}}
+
+{{/each}}
 
 <center>
 
@@ -50,18 +59,65 @@
       <tr>
         <td><div class="btn-group" data-toggle="buttons">
   <label class="btn-outline-success btn btn-block">
-    <input class="control-check" name="id" type="radio" value="{{id}}"> {{id}}</input>
+
+    <input class="control-check" onclick="preencherCampos(this)" name="id" type="radio" value="{{id}}"> {{id}}</input>
 
   </label>
 </div>
-</td>
-        <td align="center">{{Nome_pend}}</td>
-        <td align="center">{{Valor_compra}}</td>
-        <td align="center">{{Valor_pago}}</td>
-        <td align="center">{{Situacao}}</td>
-        <td align="center">{{Vencimento}}</td>
-        <td align="center">{{Hora}}</td>
-        <td align="center">{{#formatDate createdAt}}{{/formatDate}}</td>
+   
+<script>
+  function preencherCampos(botao) {
+    const linha = botao.closest('tr');
+    const celulas = linha.querySelectorAll('td');
+
+    // Pegando os valores da linha (ajuste o índice se mudar a ordem)
+    document.getElementById("Nome_pend").value = celulas[1].textContent.trim();
+    document.getElementById("Valor_compra").value = celulas[2].textContent.trim();
+    document.getElementById("Valor_pago").value = celulas[3].textContent.trim();
+    document.getElementById("Situacao").value = celulas[4].textContent.trim();
+    document.getElementById("Vencimento").value = celulas[5].textContent.trim();
+    document.getElementById("Hora").value = celulas[6].textContent.trim();
+  }
+</script>
+
+
+
+
+        <td align="center">{{Nome_pend}}
+        <input class="form-control" type="text" placeholder="Nome da Pendência" name="Nome_pend" id="Nome_pend">
+        </td>
+
+        <td align="center">{{Valor_compra}}
+        <input class="form-control" type="text" placeholder="Valor total da compra R$" name="Valor_compra" id="Valor_compra">
+        </td>
+
+        <td align="center">{{Valor_pago}}
+        <input class="form-control" type="text" placeholder="Valor total pago R$" name="Valor_pago" id="Valor_pago">
+        </td>
+
+        <td align="center">{{Situacao}}
+
+        <input class="form-control" type="text" placeholder="Situação de pagamento..." name="Situacao" id="Situacao">
+
+        </td>
+
+        <td align="center">{{Vencimento}}
+
+        <input class="form-control" type="date" name="Vencimento" id="Vencimento">
+
+        </td>
+
+        <td align="center">{{Hora}}
+
+        <input class="form-control" type="time" name="Hora" id="Hora">
+
+        </td>
+
+        <td align="center">{{#formatDate createdAt}}{{/formatDate}}
+
+          <button type="submit" class="btn btn-primary btn btn-block"><i class="fa fa-edit"></i></button>
+
+        </td>
         
       </tr>
 
@@ -89,51 +145,7 @@
     </tbody>
 </table>
 
-
-
 {{/each}}
-
-<br>
-
-<div class="jumbotron">
-  
-{{#each erros}}
-
-<div class="alert alert-danger">{{texto}}</div>
-
-{{else}}
-
-{{/each}}
-
-<a href="#up" class="btn btn-primary" role="button"><i class="fa fa-arrow-up"></i></a>
-
-<div id="down"></div>
-
-<input class="form-control" type="text" placeholder="Nome da Pendência" name="Nome_pend" id="Nome_pend">
-
-<input class="form-control" type="text" placeholder="Valor total da compra R$" name="Valor_compra" id="Valor_compra" list="List">
- 
-<input class="form-control" type="text" placeholder="Valor total pago R$" name="Valor_pago" id="Valor_pago" list="List">
- 
-<input class="form-control" type="text" placeholder="Situação de pagamento..." name="Situacao" id="Situacao" list="List">
-
-<datalist id="Situação">
-
-  <option value="Pago"></option>
-  <option value="Pendente"></option>	
-
-</datalist>
-
-<input class="form-control" type="date" name="Vencimento" id="Vencimento">
-
-<input class="form-control" type="time" name="Hora" id="Hora">
-
-<button type="submit" class="btn btn-primary btn btn-block"><i class="fa fa-edit"></i></button>
-<button class="btn btn-outline-danger btn-block" type="reset"><i class="fa fa-eraser"></i></button>
-
-</form>
-
-</div>
 
 <style>
 

@@ -266,4 +266,4 @@ app.post('/editar_faturas', function(req,res){
             
             })
 
-app.listen(3366);
+app.listen(3000);
